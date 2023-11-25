@@ -1,0 +1,188 @@
+import React, { useState } from "react";
+import AlphabetFilter from "../AlphabetFilter";
+import Browse from "../Browse";
+import Search from "../Search";
+import AppTitle from "../AppLayout/AppTitle";
+import AppFooter from "../AppLayout/AppFooter";
+import FilterResult from "../FilterResult";
+
+function Payers() {
+  const items = [
+    { name: "Absolute Total Care of SC" },
+    { name: "Aetna" },
+    { name: "Aetna Better Health Florida of FL" },
+    { name: "Aetna of AK" },
+    { name: "Aetna of AL" },
+    { name: "Aetna of AR" },
+    { name: "Aetna of AZ" },
+    { name: "Aetna of CA" },
+    { name: "Aetna of CO" },
+    { name: "Aetna of CT" },
+    { name: "Aetna of DC" },
+    { name: "Aetna of DE" },
+    { name: "Aetna of Fl" },
+    { name: "Aetna of FL" },
+    { name: "Aetna of GA" },
+    { name: "Aetna of IA" },
+    { name: "Aetna of ID" },
+    { name: "Aetna of IL" },
+    { name: "Aetna of IN" },
+    { name: "Aetna of KC" },
+    { name: "Aetna of KS" },
+    { name: "Aetna of KY" },
+    { name: "Aetna of LA" },
+    { name: "Aetna of MA" },
+    { name: "Aetna of MD" },
+    { name: "Aetna of ME" },
+    { name: "Aetna of MI" },
+    { name: "Aetna of MN" },
+    { name: "Aetna of MO" },
+    { name: "Aetna of MO,IL" },
+    { name: "Aetna of MS" },
+    { name: "Aetna of NC" },
+    { name: "Aetna of NC,SC" },
+    { name: "Aetna of ND" },
+    { name: "Aetna of NE" },
+    { name: "Aetna of TX" },
+    { name: "Aetna of UT" },
+    { name: "Aetna of VA" },
+    { name: "Aetna of WA" },
+    { name: "Aetna of WI" },
+    { name: "Aetna of WV" },
+    { name: "Affinity of NY" },
+    { name: "Ageright Advantage" },
+    { name: "AgeRight Advantage of OR" },
+    { name: "AgeWell of NY" },
+    { name: "AHF of CA" },
+    { name: "AHF of FL" },
+    { name: "Alignment Health Plan" },
+    { name: "Alignment Health Plan of CA" },
+    { name: "Alignment Health Plan of TX" },
+    { name: "Align Senior Care of CA" },
+    { name: "Align Senior Care of MI" },
+    { name: "Align Senior Care of VA" },
+    { name: "Allegiance Direct Network" },
+    { name: "Allegiance of MT" },
+    { name: "BCBS of AL" },
+    { name: "BCBS of AR" },
+    { name: "BCBS of AZ" },
+    { name: "BCBS" },
+    { name: "BCBS of FL" },
+    { name: "CalOptima of CA" },
+    { name: "CalViva Health of CA" },
+    { name: "Cambia Health Solutions" },
+    { name: "Cambia Health Solutions of OR" },
+    { name: "California Department of Health Care Services of CA" },
+    { name: "Davis Vision" },
+    { name: "Decent" },
+    { name: "Delta Dental" },
+    { name: "Delta Dental of NY" },
+    { name: "Dental Health Alliance of NY" },
+    { name: "Eastpointe of NC" },
+    { name: "Eddy Senior Care of NY" },
+    { name: "Edlerwood Health Plan of NY" },
+    { name: "Elderplan of NY" },
+    { name: "EmblemHealth" },
+    { name: "Fallon Health of MA" },
+    { name: "Fallon Health Weinberg of NY" },
+    { name: "Fidelis Care" },
+    { name: "Fidelis Care of NY" },
+    { name: "Fidelis Care of OH" },
+    { name: "Fidelity Security Life Insurance of NY" },
+    { name: "Gateway Health Medicare Assured of PA" },
+    { name: "Hamaspik Choice of NY" },
+    { name: "ICare" },
+    { name: "John Hopkins Advantage MD" },
+    { name: "Kaiser Foundation Health Plan of Washington" },
+    { name: "L.A. Care Health Plan of CA" },
+    { name: "Magellan" },
+    { name: "Nascentia Health Plus of NY" },
+    { name: "of IL" },
+    { name: "PACE CNY of NY" },
+    { name: "QualCare of NJ" },
+    { name: "Regence BlueCross BlueShield" },
+    { name: "Sanford Health Plan of ND" },
+    { name: "test of VA" },
+    { name: "Ucare" },
+    { name: "Valley Health Plan of CA" },
+    { name: "WellCare" },
+    { name: "YourCare of NY" },
+    { name: "Zing Health" },
+  ];
+  const states_US = [
+    "None",
+    "Alabama",
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Delaware",
+    "District of Columbia",
+    "Florida",
+    "Georgia",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Montana",
+    "Nebraska",
+    "Nevada",
+    "New Hampshire",
+    "New Jersey",
+    "New Mexico",
+    "New York",
+    "North Carolina",
+    "North Dakota",
+    "Ohio",
+    "Oklahoma",
+    "Oregon",
+    "Maryland",
+    "Massachusetts",
+    "Michigan",
+    "Minnesota",
+    "Mississippi",
+    "Missouri",
+    "Pennsylvania",
+    "Rhode Island",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Texas",
+    "Utah",
+    "Vermont",
+    "Virginia",
+    "Washington",
+    "West Virginia",
+    "Wisconsin",
+    "Wyoming",
+  ];
+  const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const [selectedAlphabet, setSelectedAlphabet] = useState("All");
+
+  return (
+    <>
+      {/* <AppHeader /> */}
+      <AppTitle value={false} />
+      <div style={{ backgroundColor: "#F5F5F5", width: "100%" }}>
+        <Browse selectTab={2}></Browse>
+        <Search data={states_US} />
+        <AlphabetFilter
+          alphabets={alphabets}
+          setSelectedAlphabet={setSelectedAlphabet}
+          selectedAlphabet={selectedAlphabet}
+        />
+      </div>
+      <FilterResult items={items} selectedAlphabet={selectedAlphabet} />
+      <AppFooter />
+    </>
+  );
+}
+
+export default Payers;

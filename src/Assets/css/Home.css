@@ -1,0 +1,22 @@
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+.background-image {
+  display: block;
+}
+.overlay-image {
+  position: absolute;
+  top: 48px;
+  left: 48px;
+  z-index: 1;
+}
+.overlay-letter {
+  position: absolute;
+  top: 19px;
+  left: 82px;
+  z-index: 1;
+  font-family: "poppins semi";
+  font-size: 45px;
+  color: #45a736;
+}

@@ -1,0 +1,30 @@
+.ads-container {
+  max-width: 1300px;
+  /* margin: 35px auto 0 auto; */
+  margin: auto;
+  background-color: #45a736;
+  height: 450px;
+  border-radius: 25px;
+  display: flex;
+}
+
+.ads-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ads-subtext1 {
+  margin: 0px;
+  color: #2a3d53;
+  font-size: 35px;
+  padding: 0 20px;
+}
+
+.ads-subtext2 {
+  margin: 0px;
+  padding: 0 20px;
+  font-size: 44px;
+  color: white;
+  font-family: poppins;
+}

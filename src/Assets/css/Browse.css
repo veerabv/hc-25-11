@@ -1,0 +1,18 @@
+.browse-handle__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.browse-headStyle {
+  margin: auto;
+  width: 1200px;
+}
+
+.browse-headStyle button {
+  color: #114248;
+}
+
+/* .browse-headStyle button::focus {
+  color: #114248;
+} */

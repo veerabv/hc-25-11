@@ -1,0 +1,62 @@
+.AppFooter-wrapper {
+  width: 1300px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.AppFooter-wrapper section h4 {
+  color: #02363d;
+  margin-top: 0px;
+}
+
+.menulist-handle {
+  padding: 0;
+}
+
+.menulist-handle li {
+  color: #294761;
+  font-size: 12px;
+  padding: 5px;
+  font-weight: normal;
+}
+
+.footerComp-1 {
+  width: 230px;
+  font-size: 14px;
+  padding: 8px;
+}
+.footerComp-1 p {
+  margin-top: 18px;
+}
+
+.footerComp-2 {
+  width: 230px;
+}
+
+.footerComp-3 {
+  width: 230px;
+}
+
+.footerComp-4 {
+  width: 230px;
+}
+
+.socialMedia-handler {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.socialMedia-handler button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  width: 35px;
+  height: 30px;
+}
+.menulist-handle li:hover {
+  text-decoration: underline;
+  cursor: pointer !important;
+}
