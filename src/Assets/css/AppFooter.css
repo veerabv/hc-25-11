@@ -10,6 +10,8 @@
 .AppFooter-wrapper section h4 {
   color: #02363d;
   margin-top: 0px;
+  font-family: 'poppins semi';
+  font-size: 20px;
 }
 
 .menulist-handle {
@@ -20,13 +22,16 @@
   color: #294761;
   font-size: 12px;
   padding: 5px;
-  font-weight: normal;
+  font-family: 'poppins semi';
+  margin-bottom: 6px;
+  
 }
 
 .footerComp-1 {
-  width: 230px;
-  font-size: 14px;
+  width: 250px;
+  font-size: 13px;
   padding: 8px;
+  line-height: 24px;
 }
 .footerComp-1 p {
   margin-top: 18px;

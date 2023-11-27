@@ -39,7 +39,7 @@ const AppFooter = () => {
           <section className="footerComp-1">
             <img src={brandPic} alt="Health care Dollar" />
 
-            <p>
+            <p style={{fontFamily:"poppins semi"}}>
               We are a family centered practice that incorporates compassion and
               dedication to promote your well being
             </p>

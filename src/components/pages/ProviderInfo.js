@@ -2,12 +2,63 @@ import React, { useState } from "react";
 import AppTitle from "../AppLayout/AppTitle";
 import AddressMap from "../AddressMap";
 import "../../Assets/css/ProviderInfo.css";
+import cs from "../../Assets/Static/comingSoon.png";
 
 import { Box, Grid, Paper, Stack, Typography, Chip } from "@mui/material";
 import AppFooter from "../AppLayout/AppFooter";
 
 function ProviderInfo() {
+  const data1 = ["Anasthesia","Evaluation and Management","Lab and Pathology","Medicine service and procedures","Non-Surgical Procedure","Physical Therapy","Radiology and imagine","Surgical procedure","Other Service",
+  "Evaluation and Management","Lab and Pathology","Non-Surgical Procedure","Physical Therapy","Anasthesia","Hospital"];
+  const data2 = ["Emergency Care","Hospital","Office visit","Psychology","speech","Physical Therapy","Radiology and imagine","Surgical procedure","Other Service","Hospital"];
   const [tab, setTab] = useState("pro-info");
+  const [service ,setService] = useState(null);
+  const serviceChangeHandler = () =>{
+    setTab("pro-service")
+    setService(null)
+  }
+  const serviceList =  data1.map((data , i)=>( <Chip
+    key ={i}
+       sx={{
+         color: "#858585",
+         fontSize: "16px",
+         border: "1px solid #858585",
+         textAlign: "center",
+         padding:"24px",
+         width:"210px",
+         borderRadius:"40px",
+         whiteSpace:"normal",
+         cursor: "pointer",
+         "&:hover":{background:"#DBEED9 !important",color:"#45A736",border:"none"},
+         "& span":{whiteSpace: 'normal',},
+         
+       }}
+       label={data}
+       variant="outlined"
+       onClick={() => setService(data)}
+     />))
+
+     const subServiceList =data2.map((data , i)=>( <Chip
+      key ={i}
+         sx={{
+           color: "#858585",
+           fontSize: "16px",
+           border: "1px solid #858585",
+           textAlign: "center",
+           padding:"24px",
+           width:"210px",
+           borderRadius:"40px",
+           whiteSpace:"normal",
+           cursor: "pointer",
+           "& span":{whiteSpace: 'normal',},
+           
+         }}
+         label={data}
+         variant="outlined"
+       
+       />))
+  
+
   return (
     <>
       <AppTitle value={false} />
@@ -29,7 +80,7 @@ function ProviderInfo() {
             Provider Info
           </button>
           <button
-            onClick={() => setTab("pro-service")}
+            onClick={serviceChangeHandler}
             className={tab === "pro-service" ? "active" : ""}
           >
             Provider Service
@@ -46,7 +97,7 @@ function ProviderInfo() {
             margin: "40px auto",
             width: "1300px",
             backgroundColor: "rgb(69 167 54 / 5%)",
-            padding: "32px",
+            padding: "40px 44px",
             boxSizing: "border-box",
           }}
           elevation={4}
@@ -186,6 +237,51 @@ function ProviderInfo() {
                 </Box>
               </Grid>
             </Grid>
+          )}
+          {tab === "pro-service" && (<Box>
+             <Typography
+             variant="h2"
+            
+             sx={{
+               fontSize: "32px",
+              fontFamily: "poppins semi",
+               color: "#212220",
+               marginBottom: "18px",
+             }}
+           >
+             Provider Service
+           </Typography>
+           <Stack direction="row" justifyContent="space-between" alignItems="center">
+           
+           <Typography
+           variant="h4"
+           gutterBottom
+           
+           
+           sx={{
+             fontSize: "20px",
+            fontFamily: "poppins semi",
+             color: "#212220",
+             
+           }}
+           
+         >
+         <span style={{cursor: service ? "pointer" : "default",}} onClick ={() => setService(null)}>All Services</span>  {service && <span style={{margin:"0px 12px",color:"#D9DED9"}}>/</span>} {service && <span style={{color:"#45A736"}}>{service}</span>}
+         </Typography>
+
+         <input style ={{border:"2px solid #DADADA" , width:"280px" ,borderRadius:"8px", padding:"12px 12px",fontSize:"16px"}} placeholder="Enter service name or code..." type="text"  />
+         </Stack>
+         <Box sx={{ display: "flex", flexWrap: "wrap",marginTop:"18px",gap:"30px",alignItems:"center",}}>
+          {!service && serviceList}
+          {service && subServiceList}
+
+         </Box>
+         </Box>
+          )}
+          {tab === "pro-mrf" && (
+            <Box sx={{display:"flex",justifyContent:"center"}}>
+            <img src={cs} alt="coming soon"/>
+            </Box>
           )}
         </Paper>
 
